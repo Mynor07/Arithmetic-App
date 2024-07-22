@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Formulario de Aritmetica</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Numero 1:</label>
+    <input type="number" min="0" formControlName="num1"><br><br>
+    <label>Numero 2:</label>
+    <input type="number" min="0" formControlName="num2"><br><br>
+    <label>Operación:</label>
+    <select formControlName="operation">
+      <option value="suma">Suma</option>
+      <option value="resta">Resta</option>
+      <option value="multiplicacion">Multiplicación</option>
+      <option value="division">División</option>
+    </select><br><br>
+    <button type="submit" [disabled]="!form.valid">Calcular</button>
+    <p *ngIf="result">
+      El resultado de la operación es: {{ result }}
+    </p>
+  </form>
+</div>
